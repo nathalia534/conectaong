@@ -1,0 +1,7 @@
+{
+  "projects": [
+    {"id":1,"title":"Educação para Todos","summary":"Programa de reforço escolar para crianças em situação de vulnerabilidade.","url":"#/projetos/1"},
+    {"id":2,"title":"Alimentação Saudável","summary":"Distribuição de cestas básicas e educação nutricional.","url":"#/projetos/2"},
+    {"id":3,"title":"Inclusão Digital","summary":"Aulas de informática e acesso à internet para comunidades.","url":"#/projetos/3"}
+  ]
+}
