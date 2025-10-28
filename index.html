@@ -1,76 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ConectaONG — Apoie projetos sociais</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">ConectaONG</a>
-      <nav class="main-nav" role="navigation" aria-label="Navegação principal">
+      <a href="index.html" class="logo">ConectaONG</a>
+      <nav class="main-nav">
         <ul>
-          <li><a href="/">Início</a></li>
-          <li><a href="/projetos">Projetos</a></li>
-          <li><a href="/doar">Doar</a></li>
-          <li><a href="/voluntario/cadastrar">Voluntariado</a></li>
-          <li><a href="/contato">Contato</a></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero">
       <div class="container">
-        <h1 id="hero-title">Apoie projetos que transformam vidas</h1>
+        <h1>Apoie projetos que transformam vidas</h1>
         <p>Transparência, impacto e comunidade — junte-se a nós.</p>
-        <a class="btn" href="/projetos">Ver projetos</a>
+        <a class="btn" href="projetos.html">Ver projetos</a>
       </div>
     </section>
 
-    <section class="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <h2 id="projects-title">Projetos em destaque</h2>
-        <ul class="project-list" aria-live="polite">
-          <li class="project-card">
-            <h3>Educação para Todos</h3>
-            <p>Programa de reforço escolar para crianças em situação de vulnerabilidade.</p>
-            <a href="/projetos/1" class="btn">Ver projeto</a>
-          </li>
-          <li class="project-card">
-            <h3>Alimentação Saudável</h3>
-            <p>Distribuição de cestas básicas e educação nutricional.</p>
-            <a href="/projetos/2" class="btn">Ver projeto</a>
-          </li>
-          <li class="project-card">
-            <h3>Inclusão Digital</h3>
-            <p>Aulas de informática e acesso à internet para comunidades.</p>
-            <a href="/projetos/3" class="btn">Ver projeto</a>
-          </li>
-        </ul>
-      </div>
+    <section class="about container">
+      <h2>Sobre a ConectaONG</h2>
+      <p>Somos uma plataforma que conecta pessoas e organizações para transformar comunidades por meio da solidariedade.</p>
+      <img src="assets/imagens/equipe_reunida.jpg" alt="Equipe da ONG reunida">
     </section>
 
-    <section class="callout" aria-labelledby="callout-title">
-      <h2 id="callout-title">Quer ajudar agora?</h2>
+    <section class="callout">
+      <h2>Quer ajudar agora?</h2>
       <p>Faça uma doação simbólica ou cadastre-se como voluntário.</p>
-      <a class="btn" href="/doar">Doar (simulação)</a>
-      <a class="btn" href="/voluntario/cadastrar" style="margin-left:.5rem;">Quero ser voluntário</a>
+      <div class="callout-buttons">
+        <a class="btn" href="cadastro.html">Quero ser voluntário</a>
+      </div>
     </section>
   </main>
 
-  <footer role="contentinfo">
+  <footer>
     <div class="container">
       <p>&copy; <span id="year"></span> ConectaONG. Todos os direitos reservados.</p>
-      <nav aria-label="Rodapé">
-        <ul>
-          <li><a href="/sobre">Sobre</a></li>
-          <li><a href="/privacidade">Privacidade</a></li>
-        </ul>
-      </nav>
     </div>
   </footer>
 
