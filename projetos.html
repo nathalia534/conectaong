@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projetos — ConectaONG</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <header class="site-header">
@@ -20,26 +20,31 @@
     </div>
   </header>
 
-  <main class="projects container">
+<main class="projects container grid">
+  <div class="col-12">
     <h1>Projetos em Destaque</h1>
-    <ul class="project-list">
-      <li class="project-card">
-        <img src="assets/imagens/educacao_todos.jpg" alt="Crianças estudando">
-        <h3>Educação para Todos</h3>
-        <p>Programa de reforço escolar para crianças em situação de vulnerabilidade.</p>
-      </li>
-      <li class="project-card">
-        <img src="assets/imagens/alimentacao_saudavel.jpg" alt="Distribuição de alimentos">
-        <h3>Alimentação Saudável</h3>
-        <p>Distribuição de cestas básicas e educação nutricional.</p>
-      </li>
-      <li class="project-card">
-        <img src="assets/imagens/inclusao_digital.jpg" alt="Aulas de informática">
-        <h3>Inclusão Digital</h3>
-        <p>Aulas de informática e acesso à internet para comunidades.</p>
-      </li>
-    </ul>
-  </main>
+  </div>
+
+  <!-- Projetos -->
+  <div class="col-12 grid" style="gap: var(--space-4);">
+    <div class="col-4 project-card">
+      <img src="assets/imagens/educacao_todos.jpg" alt="Crianças estudando">
+      <h3>Educação para Todos</h3>
+      <p>Programa de reforço escolar para crianças em situação de vulnerabilidade.</p>
+    </div>
+    <div class="col-4 project-card">
+      <img src="assets/imagens/alimentacao_saudavel.png" alt="Distribuição de alimentos">
+      <h3>Alimentação Saudável</h3>
+      <p>Distribuição de cestas básicas e educação nutricional.</p>
+    </div>
+    <div class="col-4 project-card">
+      <img src="assets/imagens/inclusao_digital.jpg" alt="Aulas de informática">
+      <h3>Inclusão Digital</h3>
+      <p>Aulas de informática e acesso à internet para comunidades.</p>
+    </div>
+  </div>
+</main>
+
 
   <footer>
     <div class="container">
@@ -50,3 +55,33 @@
   <script src="app.js"></script>
 </body>
 </html>
+
+<script>
+  // Seleciona todas as imagens dos cards
+  const projectImages = document.querySelectorAll('.project-card img');
+
+  // Cria o modal dinamicamente
+  const modal = document.createElement('div');
+  modal.classList.add('image-modal');
+  document.body.appendChild(modal);
+
+  // Evento de clique nas imagens
+  projectImages.forEach(img => {
+    img.addEventListener('click', () => {
+      const modalImg = document.createElement('img');
+      modalImg.src = img.src;
+      modal.innerHTML = ''; // limpa o conteúdo anterior
+      modal.appendChild(modalImg);
+      modal.classList.add('active');
+    });
+  });
+
+  // Fecha o modal ao clicar fora da imagem ou no X
+  modal.addEventListener('click', e => {
+    if (e.target === modal || e.target === modal.querySelector('::after')) {
+      modal.classList.remove('active');
+    } else {
+      modal.classList.remove('active');
+    }
+  });
+</script>

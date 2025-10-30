@@ -1,0 +1,409 @@
+/* ========================================================================== 
+   LAYOUT.CSS — Estrutura geral do site (Atualizado Responsivo)
+   ========================================================================== */
+
+/* ===== Breakpoints ===== */
+@media (max-width: 480px)  { :root { --breakpoint: xs; } }  /* celulares pequenos */
+@media (max-width: 640px)  { :root { --breakpoint: sm; } }  /* celulares grandes */
+@media (max-width: 900px)  { :root { --breakpoint: md; } }  /* tablets */
+@media (max-width: 1100px) { :root { --breakpoint: lg; } }  /* notebooks */
+@media (min-width: 1400px) { :root { --breakpoint: xl; } }  /* telas grandes */
+
+/* ===== Estrutura geral ===== */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* ===== Cabeçalho ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  padding: var(--space-2) 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-3);
+}
+
+.main-nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.hero {
+  background: url('assets/imagens/hero-bg.jpg') center/cover no-repeat;
+    background: rgba(10, 111, 181, 0.6);
+
+  position: relative;
+  color: #fff;
+  padding: var(--space-6) var(--space-2);
+  text-align: center;
+  overflow: hidden; /* evita qualquer overflow horizontal */
+}
+
+.hero h1 {
+  color: white;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza horizontalmente */
+  justify-content: center; /* centraliza verticalmente se necessário */
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem); /* ajusta dinamicamente em telas pequenas e grandes */
+  margin-bottom: var(--space-2);
+}
+
+.hero p {
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem); /* texto também responsivo */
+  margin-bottom: var(--space-4);
+  max-width: 600px; /* limita largura do parágrafo */
+}
+
+.hero .btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.hero .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Responsividade adicional */
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-5) var(--space-2);
+  }
+
+  .hero h1 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  .hero p {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    max-width: 90%; /* garante que não ultrapasse a tela */
+  }
+
+  .hero .btn {
+    width: auto;
+    padding: 0.65rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .hero h1 {
+    font-size: clamp(1.1rem, 7vw, 1.5rem);
+  }
+
+  .hero p {
+    font-size: clamp(0.75rem, 4vw, 0.95rem);
+  }
+}
+
+
+/* ===== Seção "Sobre" ===== */
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-6) var(--space-2);
+  text-align: left; /* texto à esquerda em telas maiores */
+}
+
+.about h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: var(--space-2);
+}
+
+.about p {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  max-width: 500px; /* limita largura do parágrafo */
+  color: var(--muted);
+}
+
+.about img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsividade para tablets e celulares */
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr; /* empilha verticalmente */
+    text-align: center; /* centraliza texto */
+    gap: var(--space-4);
+  }
+
+  .about h2 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .about p {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    max-width: 90%; /* mantém dentro da tela */
+    margin: 0 auto;
+  }
+
+  .about img {
+    max-width: 80%; /* imagem menor em telas pequenas */
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .about h2 {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+
+  .about p {
+    font-size: clamp(0.75rem, 4vw, 0.95rem);
+  }
+
+  .about img {
+    max-width: 90%;
+  }
+}
+
+
+/* ===== Callout Section ===== */
+.callout {
+  background: rgba(10, 111, 181, 0.6);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  width: 100%;
+  margin: 0;
+  transition: background 0.3s ease;
+}
+
+.callout .container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.callout h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: var(--space-3);
+}
+
+.callout p {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-4);
+}
+
+.callout-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.callout .btn {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.callout .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sistema de Grid Customizado 12 colunas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-4);
+}
+
+/* Colunas */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Botão do menu - estilo básico */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* Mobile: mostrar botão e esconder menu padrão */
+@media (max-width: 640px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(255,255,255,0.95);
+    width: 200px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: var(--radius-md);
+    padding: var(--space-2);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .main-nav.show {
+    display: flex;
+  }
+
+  .main-nav ul {
+    display: none;
+  }
+}
+
+/* ===== Rodapé ===== */
+footer {
+  background-color: #111;
+  color: rgba(255,255,255,0.85);
+  padding: var(--space-4) 0;
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+footer .container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+
+/* ===== Responsividade Adicional ===== */
+
+/* md: tablets */
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .about img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .main-nav ul {
+    gap: var(--space-2);
+  }
+}
+
+/* sm: celulares grandes */
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-5) var(--space-2);
+  }
+
+  .callout {
+    padding: var(--space-5) var(--space-2);
+  }
+}
+
+/* xs: celulares pequenos */
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .about {
+    padding: var(--space-4) 0;
+    text-align: center;
+  }
+
+  .callout h2 {
+    font-size: 1.5rem;
+  }
+}

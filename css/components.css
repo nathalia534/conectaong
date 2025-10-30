@@ -1,0 +1,88 @@
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+}
+.btn[type="submit"] { align-self: center; padding: 0.75rem 1.5rem; margin-top: var(--space-2); }
+
+/* Formulários */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: #fff;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin: var(--space-5) auto;
+}
+fieldset { border: 1px solid #ddd; border-radius: var(--radius-sm); padding: var(--space-2); display: flex; flex-direction: column; gap: var(--space-1); }
+legend { font-weight: 700; color: var(--primary); padding: 0 0.5rem; }
+label { display: flex; flex-direction: column; font-weight: 600; font-size: var(--font-size-sm); }
+input, select, textarea { padding: var(--space-1); border: 1px solid #ddd; border-radius: var(--radius-sm); font-size: var(--font-size-md); margin-top: 0.25rem; }
+input[type="date"], input[type="email"], input[type="tel"], input[type="text"], select { width: 100%; }
+
+/* Cards (para projetos futuros) */
+.project-card {
+  background: #fff;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Lista de Projetos */
+.projects {
+  padding: var(--space-4) 0;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.project-card h3 {
+  margin: var(--space-1) 0;
+  color: var(--primary);
+}
+
+.project-card p {
+  color: #555;
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+.project-card .btn {
+  margin-top: var(--space-1);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .project-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,0 +1,204 @@
+/* ===== Página de Projetos ===== */
+main.projects {
+  max-width: 1400px;
+  margin: var(--space-6) auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+/* Título */
+.projects h1 {
+  font-size: 2.6rem;
+  color: var(--primary);
+  margin-bottom: var(--space-5);
+  position: relative;
+}
+
+.projects h1::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--secondary);
+  margin: 0.75rem auto 0;
+  border-radius: 4px;
+}
+
+/* Lista de Projetos */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card de Projeto */
+.project-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+}
+
+.project-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.06);
+}
+
+.project-card h3 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.project-card p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0 1.5rem var(--space-4);
+}
+
+/* Modal de Imagem */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+  animation: zoomIn 0.3s ease;
+}
+
+.image-modal::after {
+  content: "✕";
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Grid 12 colunas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-4);
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 100%;
+  height: auto; /* altura proporcional */
+  object-fit: cover;
+}
+
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-6 { grid-column: span 6; }
+.col-12 { grid-column: span 12; }
+
+/* ===== Animações ===== */
+@keyframes fadeIn {
+  from { opacity: 0; } 
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; } 
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Responsividade ===== */
+
+/* Tablets e notebooks (900px - 1200px) */
+@media (max-width: 1200px) {
+  .col-4 { grid-column: span 6; } /* dois cards por linha */
+  main.projects {
+    padding: var(--space-5) var(--space-4);
+  }
+  .projects h1 {
+    font-size: 2.4rem;
+  }
+  .project-card img {
+    height: 220px;
+  }
+}
+
+/* Tablets e celulares (<900px) */
+@media (max-width: 900px) {
+  .col-4 { grid-column: span 12; } /* um card por linha */
+  main.projects {
+    padding: var(--space-4);
+  }
+  .projects h1 {
+    font-size: 2rem;
+  }
+  .project-card img {
+    height: 200px;
+  }
+}
+
+/* ===== Telas muito pequenas (iPhone SE ~320px) ===== */
+@media (max-width: 360px) {
+  main.projects {
+    padding: var(--space-3); /* reduz padding lateral */
+  }
+
+  .projects h1 {
+    font-size: 1.8rem; /* título menor */
+  }
+
+  .project-card img {
+    height: 180px; /* imagem menor para caber melhor */
+  }
+
+  .project-card p {
+    padding: 0 1rem var(--space-4); /* menos padding lateral */
+    font-size: 0.95rem;
+  }
+
+  /* garante que o grid não quebre */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+

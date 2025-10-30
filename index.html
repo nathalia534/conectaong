@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ConectaONG — Apoie projetos sociais</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">ConectaONG</a>
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Início</a></li>
@@ -20,36 +21,59 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container grid">
+      <div class="col-12 hero-content">
         <h1>Apoie projetos que transformam vidas</h1>
         <p>Transparência, impacto e comunidade — junte-se a nós.</p>
         <a class="btn" href="projetos.html">Ver projetos</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="about container">
+  <!-- About Section -->
+  <section class="about container grid">
+    <div class="col-6">
       <h2>Sobre a ConectaONG</h2>
       <p>Somos uma plataforma que conecta pessoas e organizações para transformar comunidades por meio da solidariedade.</p>
-      <img src="assets/imagens/equipe_reunida.jpg" alt="Equipe da ONG reunida">
-    </section>
-
-    <section class="callout">
-      <h2>Quer ajudar agora?</h2>
-      <p>Faça uma doação simbólica ou cadastre-se como voluntário.</p>
-      <div class="callout-buttons">
-        <a class="btn" href="cadastro.html">Quero ser voluntário</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> ConectaONG. Todos os direitos reservados.</p>
     </div>
-  </footer>
+    <div class="col-6">
+      <img src="assets/imagens/equipe_reunida.png" alt="Equipe da ONG reunida">
+    </div>
+  </section>
 
-  <script src="app.js"></script>
+  <!-- Callout Section -->
+  <section class="callout">
+    <div class="container">
+      <div class="col-12">
+        <h2>Quer ajudar agora?</h2>
+        <p>Faça uma doação simbólica ou cadastre-se como voluntário.</p>
+        <div class="callout-buttons">
+          <a class="btn" href="cadastro.html">Quero ser voluntário</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year"></span> ConectaONG. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Menu hambúrguer
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.main-nav');
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+
+  // Atualiza o ano no rodapé
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
