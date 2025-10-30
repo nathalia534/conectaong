@@ -16,6 +16,12 @@
           <li><a href="index.html">Início</a></li>
           <li><a href="projetos.html">Projetos</a></li>
           <li><a href="cadastro.html">Cadastro</a></li>
+          <li class="has-dropdown">
+            <a href="#">Mais</a>
+            <ul class="dropdown">
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
@@ -25,11 +31,12 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container grid">
-      <div class="col-12 hero-content">
-        <h1>Apoie projetos que transformam vidas</h1>
-        <p>Transparência, impacto e comunidade — junte-se a nós.</p>
-        <a class="btn" href="projetos.html">Ver projetos</a>
-      </div>
+<div class="col-12 hero-content">
+  <h1>Apoie projetos que transformam vidas</h1>
+  <p>Transparência, impacto e comunidade — junte-se a nós.</p>
+  <a class="btn" href="projetos.html">Ver projetos</a>
+</div>
+
     </div>
   </section>
 
@@ -48,7 +55,8 @@
   <section class="callout">
     <div class="container">
       <div class="col-12">
-        <h2>Quer ajudar agora?</h2>
+        <span class="badge">Novo !</span>
+        <h2>Agora você pode fazer a diferença ! Quer ajudar agora?</h2>
         <p>Faça uma doação simbólica ou cadastre-se como voluntário.</p>
         <div class="callout-buttons">
           <a class="btn" href="cadastro.html">Quero ser voluntário</a>
@@ -65,14 +73,12 @@
 </footer>
 
 <script>
-  // Menu hambúrguer
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.main-nav');
   toggle.addEventListener('click', () => {
     nav.classList.toggle('show');
   });
 
-  // Atualiza o ano no rodapé
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>

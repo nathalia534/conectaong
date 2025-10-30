@@ -1,135 +1,252 @@
+/* Reset e box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-/* Layout da página de cadastro */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Container principal */
 main.container {
-  max-width: 950px; /* ← antes era 700px */
-  margin: var(--space-6) auto;
-  padding: var(--space-5);
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
   background: #fff;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 /* Título */
-h1 {
+main.container h1 {
   text-align: center;
-  color: var(--primary);
-  margin-bottom: var(--space-4);
-  font-size: 2rem;
+  color: #0a6fb5;
+  margin-bottom: 2rem;
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
 }
 
-/* Formulário */
+/* Form */
 form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 1.5rem;
+  margin-top: -2rem; /* mantém o form mais para cima */
 }
 
-/* Agrupamentos */
+/* Fieldset e Legend */
 fieldset {
   border: 1px solid #ddd;
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ← divide o conteúdo em 2 colunas */
-  gap: var(--space-3);
+  border-radius: 10px;
+  padding: 1.2rem;
+  background: #fafafa;
 }
 
 legend {
-  grid-column: 1 / -1; /* faz o título ocupar toda a largura */
   font-weight: 700;
-  color: var(--primary);
-  font-size: 1.05rem;
+  color: #0a6fb5;
+  font-size: 1.1rem;
   padding: 0 0.5rem;
 }
 
-/* Campos */
+/* Grid de campos */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* Labels e Inputs */
 label {
   display: flex;
   flex-direction: column;
-  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text);
+  color: #333;
 }
 
-input,
-select,
-textarea {
+input, select {
+  padding: 0.65rem;
+  margin-top: 0.3rem;
   border: 1px solid #ccc;
-  border-radius: var(--radius-sm);
-  padding: 0.6rem;
-  margin-top: 0.25rem;
+  border-radius: 6px;
   font-size: 1rem;
+  font-family: inherit;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(10, 111, 181, 0.1);
+input:focus, select:focus {
+  border-color: #0a6fb5;
+  box-shadow: 0 0 0 2px rgba(10,111,181,0.15);
   outline: none;
 }
 
 /* Botão */
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
 button.btn {
-  align-self: center;
-  margin-top: var(--space-4);
   padding: 0.9rem 2.5rem;
-  background: var(--primary);
+  font-family: inherit;
+  font-weight: 600;
+  background: #0a6fb5;
   color: #fff;
   border: none;
-  border-radius: var(--radius-md);
-  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 button.btn:hover {
-  background: var(--primary-light);
+  background: #3a8fd0;
+  transform: translateY(-2px);
 }
 
-/* O container principal já é grid */
-main.container.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-4);
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none; /* inicialmente escondido */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-/* Labels dentro de fieldset como colunas */
-label.col-6 {
-  grid-column: span 6;
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
-/* Fieldsets ocupam 12 colunas */
-fieldset.col-12 {
-  grid-column: span 12;
+.modal-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-/* Botão envia ocupa todas as colunas centralizado */
-div.col-12 button.btn {
-  grid-column: span 12;
+.modal-content button {
+  padding: 0.6rem 1.5rem;
+  background: #0a6fb5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-/* Responsividade */
-@media (max-width: 800px) {
-  label.col-6 {
-    grid-column: span 12; /* campos ficam em 1 coluna */
-  }
-}
-
-/* Move o form um pouco para cima */
-form.form-up {
-  margin-top: -1.5rem; /* ajuste o valor para ficar visualmente correto */
+.modal-content button:hover {
+  background: #3a8fd0;
 }
 
 
-/* Responsividade */
-@media (max-width: 800px) {
-  fieldset {
-    grid-template-columns: 1fr; /* volta para 1 coluna */
-  }
+/* Responsividade: aumentar largura em dispositivos menores */
+@media (max-width: 700px) {
   main.container {
-    margin: var(--space-4) 1rem;
-    padding: var(--space-3);
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  fieldset {
+    padding: 1rem;
   }
 }
+
+/* Aumentar inputs do formulário de cadastro */
+#cadastroForm input[type="text"],
+#cadastroForm input[type="email"],
+#cadastroForm input[type="tel"],
+#cadastroForm input[type="date"] {
+  font-size: 1.0rem;       /* aumenta o tamanho da fonte */
+  padding: 0.8rem;         /* aumenta o espaço interno */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;             /* ocupa toda a largura do label */
+  box-sizing: border-box;  /* garante padding incluso na largura */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#cadastroForm input[type="text"]:focus,
+#cadastroForm input[type="email"]:focus,
+#cadastroForm input[type="tel"]:focus,
+#cadastroForm input[type="date"]:focus {
+  border-color: #0a6fb5;
+  box-shadow: 0 0 0 2px rgba(10,111,181,0.15);
+  outline: none;
+}
+
+/* Campos do formulário em telas grandes */
+@media (min-width: 1024px) {
+  form#cadastroForm {
+    width: 100%; /* ocupa 100% do container */
+    max-width: 1000px; /* aumenta o limite máximo */
+    margin: 0 auto; /* centraliza */
+  }
+
+  fieldset {
+    grid-template-columns: repeat(2, 1fr); /* mantém 2 colunas */
+    gap: 1.5rem; /* aumenta o espaço entre campos */
+  }
+
+  input, select {
+    font-size: 1.05rem; /* campos maiores horizontalmente e visualmente */
+    padding: 0.6rem;
+  }
+}
+
+/* Celulares médios: até 480px */
+@media (max-width: 480px) {
+  main.container {
+    width: 98%;
+    padding: 1rem;
+  }
+
+  input, select {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Tablets pequenos: 701px até 900px */
+@media (min-width: 701px) and (max-width: 900px) {
+  main.container {
+    width: 92%;
+    padding: 1.5rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr; /* 1 coluna para facilitar leitura */
+  }
+}
+
+/* Tablets grandes / notebooks médios: 901px até 1023px */
+@media (min-width: 901px) and (max-width: 1023px) {
+  main.container {
+    width: 95%;
+    padding: 2rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr); /* volta para 2 colunas */
+    gap: 1rem;
+  }
+}
+
+
+

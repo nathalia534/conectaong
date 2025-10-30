@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalhe do Projeto — ConectaONG</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">ConectaONG</a>
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<main class="project-detail">
+    <img id="project-image" src="" alt="">
+    <h1 id="project-title"></h1>
+    <p id="project-description"></p>
+    <a href="projetos.html" class="btn">Voltar para Projetos</a>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> ConectaONG. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/projeto.js"></script>
+
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

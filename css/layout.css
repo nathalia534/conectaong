@@ -43,11 +43,101 @@ body {
   color: var(--primary);
 }
 
+/* ===== Dropdown Menu ===== */
+.main-nav li.has-dropdown {
+  position: relative;
+}
+
+.main-nav li.has-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* espaço entre texto e setinha */
+}
+
+.main-nav li.has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 180px;
+  z-index: 100;
+  flex-direction: column;
+}
+
+.main-nav li.has-dropdown:hover .dropdown {
+  display: flex;
+}
+
+.main-nav li.has-dropdown .dropdown li a {
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.main-nav li.has-dropdown .dropdown li a:hover {
+  background-color: rgba(0,123,255,0.1);
+  color: var(--primary);
+}
+
+/* Seta de indicação */
+.main-nav li.has-dropdown > a::before {
+  content: "▼";        /* seta */
+  font-size: 0.6rem;   /* ajuste o tamanho como quiser */
+  margin-right: 0.25rem; /* espaço entre a seta e o texto */
+  transition: transform 0.3s ease;
+}
+
+
+.main-nav li.has-dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* Mobile: dropdown clicável */
+@media (max-width: 640px) {
+  .main-nav li.has-dropdown .dropdown {
+    position: static;
+    display: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .main-nav li.has-dropdown.active .dropdown {
+    display: flex;
+  }
+
+  .main-nav li.has-dropdown a {
+    justify-content: space-between;
+  }
+}
+
+
 .main-nav ul {
   list-style: none;
   display: flex;
   gap: var(--space-3);
 }
+
+/* Menu principal: links alinhados verticalmente */
+.main-nav ul li a {
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  gap: 0.25rem;        /* espaço entre a seta e o texto, se houver */
+  padding: 0.5rem 1rem; /* garante altura consistente */
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* Dropdown: manter alinhamento interno */
+.main-nav li.has-dropdown .dropdown li a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
 
 .main-nav a {
   position: relative;
@@ -71,7 +161,7 @@ body {
 
 .hero {
   background: url('assets/imagens/hero-bg.jpg') center/cover no-repeat;
-    background: rgba(10, 111, 181, 0.6);
+  background-color: #0a6fb5;
 
   position: relative;
   color: #fff;
@@ -110,6 +200,7 @@ body {
 }
 
 .hero .btn {
+    background-color: #28a745; /* verde sucesso */
   display: inline-block;
   text-align: center;
   padding: 0.75rem 1.5rem;
@@ -233,7 +324,7 @@ body {
 
 /* ===== Callout Section ===== */
 .callout {
-  background: rgba(10, 111, 181, 0.6);
+  background-color: #0a6fb5;
   color: white;
   text-align: center;
   padding: 4rem 1rem;
@@ -265,7 +356,22 @@ body {
   gap: 1rem;
 }
 
+.badge {
+  display: inline-block;
+  background-color: #ffc107; /* amarelo destaque */
+  color: #fff;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px; /* bordas arredondadas */
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+
 .callout .btn {
+    background-color: #28a745; /* verde sucesso */
+
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }

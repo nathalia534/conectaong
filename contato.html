@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato — ConectaONG</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+ <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">ConectaONG</a>
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li class="has-dropdown">
+            <a href="#">Mais</a>
+            <ul class="dropdown">
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Fale Conosco</h1>
+        <p>Preencha o formulário abaixo ou use nossos contatos fictícios.</p>
+      </div>
+    </section>
+
+    <section class="contact-info container">
+      <div class="contact-details">
+        <h2>Informações de Contato</h2>
+        <p><strong>Email:</strong> contato@conectaong.org</p>
+        <p><strong>Telefone:</strong> (11) 99999-9999</p>
+        <p><strong>Endereço:</strong> Rua da Solidariedade, 123 - São Paulo, SP</p>
+      </div>
+
+      <div class="contact-form">
+        <h2>Envie uma Mensagem</h2><br>
+        <form>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> ConectaONG. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Modal de confirmação -->
+<div id="modal-sucesso" class="modal">
+      <div class="modal-content">
+      <p>Mensagem enviada com sucesso!</p>
+      <button id="closeBtn">Fechar</button>
+    </div>
+</div>
+
+  <script src="js/contato.js"></script>
+
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

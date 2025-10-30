@@ -7,44 +7,54 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="logo">ConectaONG</a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
-          <li><a href="cadastro.html">Cadastro</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+ <header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">ConectaONG</a>
+    <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li class="has-dropdown">
+          <a href="#">Mais</a>
+          <ul class="dropdown">
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<main class="projects container grid">
+<main class="projects container">
   <div class="col-12">
     <h1>Projetos em Destaque</h1>
   </div>
 
-  <!-- Projetos -->
-  <div class="col-12 grid" style="gap: var(--space-4);">
-    <div class="col-4 project-card">
-      <img src="assets/imagens/educacao_todos.jpg" alt="Crianças estudando">
-      <h3>Educação para Todos</h3>
-      <p>Programa de reforço escolar para crianças em situação de vulnerabilidade.</p>
+  <div class="projects-cards">
+    <div class="project-card">
+      <img src="assets/imagens/alimentacao_saudavel.png" alt="Alimentação Saudável">
+      <h2>Alimentação Saudável</h2>
+      <p>Projeto focado em promover hábitos alimentares saudáveis para crianças e famílias.</p>
+      <a href="projeto-detalhe.html?projeto=alimentacao" class="btn">Ver Mais</a>
     </div>
-    <div class="col-4 project-card">
-      <img src="assets/imagens/alimentacao_saudavel.png" alt="Distribuição de alimentos">
-      <h3>Alimentação Saudável</h3>
-      <p>Distribuição de cestas básicas e educação nutricional.</p>
+
+    <div class="project-card">
+      <img src="assets/imagens/educacao_todos.jpg" alt="Educação para Todos">
+      <h2>Educação para Todos</h2>
+      <p>Projeto voltado para oferecer acesso à educação básica de qualidade para todos.</p>
+      <a href="projeto-detalhe.html?projeto=educacao" class="btn">Ver Mais</a>
     </div>
-    <div class="col-4 project-card">
-      <img src="assets/imagens/inclusao_digital.jpg" alt="Aulas de informática">
-      <h3>Inclusão Digital</h3>
-      <p>Aulas de informática e acesso à internet para comunidades.</p>
+
+    <div class="project-card">
+      <img src="assets/imagens/equipe_reunida.png" alt="Equipe Reunida">
+      <h2>Projeto Social Integrado</h2>
+      <p>Projeto que incentiva o trabalho colaborativo e integração das equipes comunitárias.</p>
+      <a href="projeto-detalhe.html?projeto=equipe" class="btn">Ver Mais</a>
     </div>
   </div>
 </main>
-
 
   <footer>
     <div class="container">
@@ -52,36 +62,32 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
 
 <script>
-  // Seleciona todas as imagens dos cards
-  const projectImages = document.querySelectorAll('.project-card img');
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.main-nav');
 
-  // Cria o modal dinamicamente
-  const modal = document.createElement('div');
-  modal.classList.add('image-modal');
-  document.body.appendChild(modal);
+  // Menu toggle mobile
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
 
-  // Evento de clique nas imagens
-  projectImages.forEach(img => {
-    img.addEventListener('click', () => {
-      const modalImg = document.createElement('img');
-      modalImg.src = img.src;
-      modal.innerHTML = ''; // limpa o conteúdo anterior
-      modal.appendChild(modalImg);
-      modal.classList.add('active');
+  // Fecha dropdowns em mobile ao clicar no item pai
+  document.querySelectorAll('.has-dropdown > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 640) { // apenas em mobile
+        e.preventDefault();
+        link.parentElement.classList.toggle('active');
+      }
     });
   });
 
-  // Fecha o modal ao clicar fora da imagem ou no X
-  modal.addEventListener('click', e => {
-    if (e.target === modal || e.target === modal.querySelector('::after')) {
-      modal.classList.remove('active');
-    } else {
-      modal.classList.remove('active');
-    }
-  });
+  // Atualiza ano no rodapé
+  document.getElementById('year').textContent = new Date().getFullYear();
+});
 </script>
+

@@ -1,0 +1,83 @@
+/* Apenas para esta página */
+.project-detail {
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+  padding: 0 1rem;
+  font-family: inherit; /* herdando a fonte do body ou container global */
+}
+
+/* Imagem centralizada e responsiva */
+.project-detail img {
+  width: 100%;
+  max-width: 200px; /* menor que antes, ajusta para telas grandes */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+
+/* Título do projeto */
+.project-detail h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-family: inherit; /* garante herança */
+}
+
+/* Descrição */
+.project-detail p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-family: inherit;
+}
+
+/* Botão */
+.project-detail a.btn {
+  padding: 0.7rem 1.5rem;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.project-detail a.btn:hover {
+  background-color: #0056b3;
+}
+
+/* ================== RESPONSIVIDADE ================== */
+
+/* Tablets */
+@media (max-width: 900px) {
+  .project-detail h1 {
+    font-size: 1.8rem;
+  }
+  .project-detail p {
+    font-size: 1rem;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 600px) {
+  .project-detail {
+    margin: 2rem 1rem;
+    padding: 0 1rem;
+  }
+
+  .project-detail h1 {
+    font-size: 1.5rem;
+  }
+
+  .project-detail p {
+    font-size: 0.95rem;
+  }
+
+  .project-detail a.btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}

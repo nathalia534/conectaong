@@ -37,3 +37,34 @@ function mascaraCEP(valor) {
 mascaraInput(document.getElementById('cpf'), mascaraCPF, 11);
 mascaraInput(document.getElementById('telefone'), mascaraTelefone, 11);
 mascaraInput(document.getElementById('cep'), mascaraCEP, 8);
+
+// Seleciona elementos
+const form = document.getElementById('cadastroForm');
+const modal = document.getElementById('successModal');
+const closeModalBtn = document.getElementById('closeModal');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // evita envio real
+
+  // Mostra modal
+  modal.style.display = 'flex';
+
+  form.reset();
+
+  // Opcional: fecha automaticamente após 3 segundos
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 3000);
+});
+
+// Fecha modal ao clicar no botão
+closeModalBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// Fecha modal ao clicar fora do conteúdo
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
